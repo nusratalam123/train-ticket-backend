@@ -1,31 +1,28 @@
-import bcrypt from "bcrypt";
-import CryptoJS from "crypto-js";
 import mongoose from "mongoose";
-import validator from "validator";
+import { ObjectId } from "bson";
 
 const stationsSchema = new mongoose.Schema(
   {
     station_id: {
-      type: Number,
+      type: String,
       required: true,
     },
     station_name: {
       type: String,
-      required: true,
-      trim: true,
-      minLength: [3, "name must be at least 3 characters"],
-      maxLength: [100, "name is too large"],
     },
     longitude: {
-      type: Number,
-      required: true,
-      trim: true,
+      type: String,
     },
     latitude: {
-      type: Number,
-      required: true,
-      trim: true,
+      type: String,
     },
+    trains: [
+      {
+        train_id: Number,
+        arrival_time: String,
+        departure_time: String,
+      },
+    ],
   },
   {
     timestamps: true,
