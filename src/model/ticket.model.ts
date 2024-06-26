@@ -2,14 +2,22 @@ import mongoose from "mongoose";
 
 const ticketSchema = new mongoose.Schema(
   {
-    wallet_id: {
-      type: Number,
-      required: true,
-    },
     time_after: String,
     station_from: Number,
-    station_to:Number
+    station_to: Number,
+    ticket_id: Number,
+    wallet_id: Number,
+    balance: String,
+    stations: [
+      {
+        station_id: Number,
+        train_id: Number,
+        arrival_time: String,
+        departure_time: String,
+      },
+    ],
   },
+
   {
     timestamps: true,
   },
