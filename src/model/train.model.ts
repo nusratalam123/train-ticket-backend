@@ -3,7 +3,7 @@ import CryptoJS from "crypto-js";
 import mongoose from "mongoose";
 import validator from "validator";
 
-const stationsSchema = new mongoose.Schema(
+const TrainsSchema = new mongoose.Schema(
   {
     train_id: {
       type: Number,
@@ -21,7 +21,7 @@ const stationsSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    stop: [
+    stops: [
       {
         station_id: Number,
         arrival_time: String,
@@ -35,5 +35,5 @@ const stationsSchema = new mongoose.Schema(
   },
 );
 
-const Stations = mongoose.model("Stations", stationsSchema);
-export default Stations;
+const Trains = mongoose.model("Trains", TrainsSchema);
+export default Trains;
